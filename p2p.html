@@ -5,14 +5,11 @@
 <body>
     <p>Your id:<input type="text" value="" readonly></p>
     <p>Other guy's id:<input type="text" value=""><button>Connect</button></p>
-    <p>
-        <input value=""><button>Send</button>
-    </p>
+    <p><input value=""><button>Send</button></p>
 </body>
 <script>
     const appEl = document.body;
     const main = (loadEvent) => {
-
         let
             connection = null,
             peer = new Peer({
@@ -27,7 +24,6 @@
         peer.on('open', function(id) {
             yourId.value = id;
         });
-
         peer.on('connection', function(conn) {
             conn.on('data', function(data) {
                 alert(data);
