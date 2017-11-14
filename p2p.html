@@ -30,10 +30,8 @@
             });
         });
         conBtn.addEventListener('click', (e) => {
-            console.log(e)
             connection = peer.connect(otherId.value);
         });
-
         sendBtn.addEventListener('click', (e) => {
             if (connection === null) return false;
             connection.send(data.value);
