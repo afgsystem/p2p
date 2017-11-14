@@ -1,0 +1,49 @@
+<html>
+<head>
+    <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+</head>
+<body>
+    <p>Your id:<input type="text" value="" readonly></p>
+    <p>Other guy's id:<input type="text" value=""><button>Connect</button></p>
+    <p>
+        <input value=""><button>Send</button>
+    </p>
+</body>
+<script>
+    const appEl = document.body;
+    const main = (loadEvent) => {
+
+        let
+            connection = null,
+            peer = new Peer({
+                key: '' /* You could get a api key here http://peerjs.com/dash# */
+            }),
+            yourId = appEl.children[0].firstElementChild,
+            otherId = appEl.children[1].children[0],
+            conBtn = appEl.children[1].children[1],
+            data = appEl.children[2].children[0],
+            sendBtn = appEl.children[2].children[1];
+
+        peer.on('open', function(id) {
+            yourId.value = id;
+        });
+
+        peer.on('connection', function(conn) {
+            conn.on('data', function(data) {
+                alert(data);
+            });
+        });
+        conBtn.addEventListener('click', (e) => {
+            console.log(e)
+            connection = peer.connect(otherId.value);
+        });
+
+        sendBtn.addEventListener('click', (e) => {
+            if (connection === null) return false;
+            connection.send(data.value);
+            data.value = '';
+        });
+    };
+    document.addEventListener('DOMContentLoaded', main);
+</script>
+</html>
