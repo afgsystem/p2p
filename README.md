@@ -6,5 +6,5 @@ https://peerjs.com/peerserver.html
 data:text/html,
 ... HERE p2p.html file content ...
 ```
-Now you can run easly, put url address bar like that
+Now you can run easly, put url address bar like that 
 ![view](https://github.com/hmetgundogdu/p2p/raw/master/url-address-bar.png)
