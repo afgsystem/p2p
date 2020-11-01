@@ -1,6 +1,6 @@
 <html>
 <head>
-    <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 </head>
 <body>
     <p>Your id:<input type="text" value="" readonly></p>
@@ -12,9 +12,7 @@
     const main = (loadEvent) => {
         let
             connection = null,
-            peer = new Peer({
-                key: '' /* You could get a api key here http://peerjs.com/dash# */
-            }),
+            peer = new Peer(),
             yourId = appEl.children[0].firstElementChild,
             otherId = appEl.children[1].children[0],
             conBtn = appEl.children[1].children[1],
